@@ -31,6 +31,8 @@ public class SysLogController {
 	
 	@PostMapping(value="/delete")
 	public HttpResult delete(@RequestBody List<SysLog> records) {
+
+
 		return HttpResult.ok(sysLogService.delete(records));
 	}
 }
