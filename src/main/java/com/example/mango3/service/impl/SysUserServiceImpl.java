@@ -1,5 +1,6 @@
 package com.example.mango3.service.impl;
 
+import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,6 +25,26 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public List<SysUser> findAll() {
         return sysUserMapper.findAll();
+    }
+
+    @Override
+    public SysUser findByName(String name) {
+        return null;
+    }
+
+    @Override
+    public String findPermissions(String name) {
+        return null;
+    }
+
+    @Override
+    public String findUserRoles(Long userId) {
+        return null;
+    }
+
+    @Override
+    public File createUserExcelFile(PageRequest pageRequest) {
+        return null;
     }
 
 

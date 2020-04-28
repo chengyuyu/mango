@@ -8,9 +8,11 @@ import com.example.mango3.page.PageRequest;
 import com.example.mango3.page.PageResult;
 import com.example.mango3.service.SysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class SysRoleServiceImpl implements SysRoleService {
     @Autowired
     private SysRoleMapper sysRoleMapper;

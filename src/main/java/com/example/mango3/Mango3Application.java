@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 //@SpringBootApplication(scanBasePackages = {"com.example.mango3"})
 
-@MapperScan("com.example.mango3.dao")
+//@MapperScan("com.example.mango3.dao")
 @SpringBootApplication
 public class Mango3Application {
 
