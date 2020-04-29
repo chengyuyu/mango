@@ -22,6 +22,8 @@ public interface SysUserMapper {
     int updateByPrimaryKey(SysUser record);
 
 
+    SysUser selectByUserName(String name);
+
     List<SysUser> findAll();
 
     List<SysUser> findPage();

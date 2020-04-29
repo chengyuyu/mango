@@ -1,20 +1,17 @@
 package com.example.mango3.controller;
 
-import com.example.mango3.common.FileUtils;
+import com.example.mango3.utils.FileUtils;
 import com.example.mango3.constant.SysConstants;
-import com.example.mango3.dao.SysUserMapper;
 import com.example.mango3.domain.SysUser;
 import com.example.mango3.http.HttpResult;
 import com.example.mango3.page.PageRequest;
 import com.example.mango3.service.SysUserService;
 import com.example.mango3.utils.PasswordUtils;
-import com.github.pagehelper.PageHelper;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.util.List;
@@ -22,6 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("user")
+@Slf4j
 public class SysUserController {
 
     @Autowired
@@ -39,6 +37,7 @@ public class SysUserController {
             String salt = PasswordUtils.getSalt();
             if(user == null) {
                 // 新增用户
+                log.info("新增用户");
                 if(sysUserService.findByName(record.getName()) != null) {
                     return HttpResult.error("用户名已存在!");
                 }
@@ -47,6 +46,7 @@ public class SysUserController {
                 record.setPassword(password);
             } else {
                 // 修改用户, 且修改了密码
+                log.info("modify password");
                 if(!record.getPassword().equals(user.getPassword())) {
                     String password = PasswordUtils.encode(record.getPassword(), salt);
                     record.setSalt(salt);

@@ -1,4 +1,4 @@
-package com.example.mango3.common;
+package com.example.mango3.utils;
 
 /**
  * 字符串工具类

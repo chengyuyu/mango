@@ -1,4 +1,4 @@
-package com.example.mango3.common;
+package com.example.mango3.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

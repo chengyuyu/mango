@@ -1,4 +1,4 @@
-package com.example.mango3.common;
+package com.example.mango3.utils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

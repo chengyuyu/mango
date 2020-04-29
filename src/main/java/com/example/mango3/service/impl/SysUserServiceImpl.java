@@ -1,7 +1,6 @@
 package com.example.mango3.service.impl;
 
 import java.io.File;
-import java.util.LinkedList;
 import java.util.List;
 
 import com.example.mango3.dao.SysUserMapper;
@@ -13,13 +12,11 @@ import com.example.mango3.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-
 
 @Service
 public class SysUserServiceImpl implements SysUserService {
     
-    @Resource
+    @Autowired
     private SysUserMapper sysUserMapper;
 
     @Override
@@ -29,7 +26,8 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     public SysUser findByName(String name) {
-        return null;
+        return sysUserMapper.selectByUserName(name);
+//        return null;
     }
 
     @Override
@@ -50,22 +48,31 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     public int save(SysUser record) {
-        return 0;
+        // insert和insertSelective   插入全部属性和插入部分属性。
+        if((sysUserMapper.selectByUserName(record.getName()) != null)){
+            return sysUserMapper.updateByPrimaryKeySelective(record);
+        }
+        return sysUserMapper.insertSelective(record);
     }
 
     @Override
     public int delete(SysUser record) {
-        return 0;
+        return sysUserMapper.deleteByPrimaryKey(record.getId());
     }
 
     @Override
     public int delete(List<SysUser> records) {
-        return 0;
+        int cnt = 0;
+        for(SysUser record : records){
+            sysUserMapper.deleteByPrimaryKey(record.getId());
+            cnt++;
+        }
+        return cnt;
     }
 
     @Override
     public SysUser findById(Long id) {
-        return null;
+        return sysUserMapper.selectByPrimaryKey(id);
     }
 
     @Override

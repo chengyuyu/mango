@@ -1,8 +1,6 @@
 package com.example.mango3.page;
 
-import com.example.mango3.common.ReflectionUtils;
-import com.example.mango3.page.PageRequest;
-import com.example.mango3.page.PageResult;
+import com.example.mango3.utils.ReflectionUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
